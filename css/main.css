@@ -37579,10 +37579,10 @@ h4 {
 .width-full-3 {
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  width: 800px;
+  width: 650px;
 }
 .width-full-3 .dropdown-grid-item {
-  width: 240px;
+  width: 320px;
 }
 .dropdown-grid-item {
   width: auto;
@@ -37927,7 +37927,7 @@ h4 {
 .footer-bottom {
   position: relative;
   display: block;
-  border-top: 1px solid rgba(248, 249, 250, 0.05);
+  border-top: 1px solid rgba(225, 225, 255, 0.9);
 }
 .footer-bottom.footer-light {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
