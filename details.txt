@@ -1,0 +1,115 @@
+<?php 
+    $conn=mysqli_connect("localhost","root","","bumblebees");
+
+if(isset($_POST['submit'])) {
+
+    $Name = $conn->real_escape_string($_POST['Name']);
+    $Email = $conn->real_escape_string($_POST['Email']);
+    $Contact = $conn->real_escape_string($_POST['Contact']);
+    $Whatsapp = $conn->real_escape_string($_POST['Whatsapp']);
+    $Business = $conn->real_escape_string($_POST['Business']);
+    $Purpose = $conn->real_escape_string($_POST['Purpose']);
+    $Message = $conn->real_escape_string($_POST['Message']);
+
+
+
+            $sql = "INSERT INTO `leadform` (`Name`, `Email`, `Contact`, `Whatsapp`, `BusinessName`, `Purpose`, `Message`) 
+    VALUES (
+        '" . '$_POST['Name']' . "',
+        '" . $Email . "',
+        '" . $Contact . "',
+        '" . $Whatsapp . "',
+        '" . $Business . "',
+        '" . $Purpose . "',
+        '" . $Message . "',)";
+
+
+        if(!$sql)
+        {
+            echo "Failed";
+        }
+        else
+        {
+            echo "Records added successfully.";
+        }
+
+        
+
+        
+
+
+
+  
+
+            require_once './vendor/autoload.php';
+            require_once './php/credential.php';
+
+            $passMessage = new stdClass();
+            $passMessage-> Name = $_POST["Name"];
+            $passMessage-> Email = $_POST["Email"];
+            $passMessage-> Contact = $_POST["Contact"];
+            $passMessage-> Whatsapp = $_POST["Whatsapp"];
+            $passMessage-> Business = $_POST["Business"];
+            $passMessage-> Purpose = $_POST["Purpose"];
+            $passMessage-> Message = $_POST["Message"];
+           
+
+            // Create the Transport
+            $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+                ->setUsername(EMAIL)
+                ->setPassword(PASS);
+
+            // Create the Mailer using your created Transport
+            $mailer = new Swift_Mailer($transport);
+
+            // Create a message
+            $message = (new Swift_Message(
+                'Mail From Bumble Bees Website | Enquiry Mail'
+            ))
+                ->setFrom(['noreply@bumblebees.co.in' => 'Bumble Bees | Marketing Team'])
+                ->setTo('raghavanofficials@gmail.com', 'project@m.bumblebees.co.in')
+                ->setBody($passMessage);
+
+        
+                $message2 = (new Swift_Message(
+                    'Mail From Bumble Bees Website | Confirm Mail'
+                ))
+                    ->setFrom(['noreply@bumblebees.co.in' => 'Bumble Bees | Marketing Team'])
+                    ->setTo([$_POST['Email']])
+                    ->setBody( '<h3>Dear Client / Customer</h3> <br> 
+                    <h5>Thank you for filling out the contact form on our website. We appreciate you taking the time to reach out to us and will do our best to respond to your inquiry as soon as possible.</h5>
+                    <br>
+                    <h5>If you have any additional questions or concerns, please don`t hesitate to contact us again.</h5>
+                    <br>
+                    Regards
+                    <br>
+                    Bumble Bees - Project Team
+                    <br>
+                    Urapakkam, Chennai',
+                'text/html')
+
+                ->addPart(
+                    'Plain text email',
+                    'text/plain'
+                );
+
+            
+
+            // Send the message
+            if ($mailer->send($message,$message2)) {
+                echo 'Mail Send Sucessfully';
+            } else {
+                echo '
+        <script type="text/javascript>
+        alert("Mail Not Sent");
+        </script>
+        ';
+            }
+
+            
+
+            $conn->close();
+        
+    } else {
+        $_SESSION['form_submit'] = 'NULL';
+    } ?>

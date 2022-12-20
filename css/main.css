@@ -37538,7 +37538,7 @@ h4 {
   font-size: 25px;
 }
 .sticky-header {
-  padding: 20px 0;
+  padding: 0px 0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
