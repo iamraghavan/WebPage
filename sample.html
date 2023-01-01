@@ -1,17 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script>
-    let a = document.URL;
-    console.log(a);
-    let b = document.location.href;
-    console.log(b);
-  </script>
-</body>
-</html>
+<html>
+    <head>
+      <title>My Facebook Login Page</title>
+    </head>
+    <body>
+
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '717000599791753', // App ID
+            channelUrl : 'http://localhost/webpage/sample.html', // Channel File
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+          });
+        };
+        // Load the SDK Asynchronously
+        (function(d){
+           var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           ref.parentNode.insertBefore(js, ref);
+         }(document));
+      </script>
+
+      <div class="fb-login-button">Login with Facebook</div>
+
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js"></script> 
+
+    </body>
+ </html>
