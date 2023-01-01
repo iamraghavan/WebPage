@@ -86,36 +86,32 @@
                                     <div class="dropdown-grid rounded-custom width-full-3">
                                         <div class="dropdown-grid-item">
                                             <h6 class="drop-heading">Web Section</h6>
-                                            <a href="./services/Landing-Page.html" class="dropdown-link">
+                                            <a href="./services/landing-page.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Landing Page</div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/website-development.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Website Development</div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/web-application.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Web Application</div>
                                             </a>
-                                            <a href="" class="dropdown-link">
-                                                <div class="drop-title">Web UI / UX Design</div>
-                                            </a>
-                                            <a href="" class="dropdown-link">
-                                                <div class="drop-title">E-commerce Development</div>
-                                            </a>
+                                           
+                                        
                                             <br />
 
                                             <h6 class="drop-heading">Marketing Section</h6>
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/social-media-management.html"  target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Social Media Management</div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/facebook-instagram-marketing.html"  target="_blank" class="dropdown-link">
                                                 <div class="drop-title">
                                                     Facebook & Insta Marketing
                                                 </div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href=""  target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Google Ads</div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href=""  target="_blank" class="dropdown-link">
                                                 <div class="drop-title">SEO & Local SEO</div>
                                             </a>
                                         </div>
@@ -137,6 +133,12 @@
                                             </a>
 
                                             <br />
+                                            <h6 class="drop-heading">Design Section</h6>
+                                            <a href="" class="dropdown-link">
+                                                <div class="drop-title"> UI / UX Design</div>
+                                            </a>
+                                            <br />
+
 
                                             <h6 class="drop-heading">Cloud Section</h6>
                                             <a href="" class="dropdown-link">
@@ -428,22 +430,18 @@
                                         <a href="" class="dropdown-link">
                                             <div class="drop-title">Website Development</div>
                                         </a>
-                                        <a href="" class="dropdown-link">
+                                        <a href="./services/web-application.html" class="dropdown-link">
                                             <div class="drop-title">Web Application</div>
                                         </a>
-                                        <a href="" class="dropdown-link">
-                                            <div class="drop-title">Web UI / UX Design</div>
-                                        </a>
-                                        <a href="" class="dropdown-link">
-                                            <div class="drop-title">E-commerce Development</div>
-                                        </a>
+                                    
+                                       
                                         <br />
 
                                         <h6 class="drop-heading">Marketing Section</h6>
-                                        <a href="" class="dropdown-link">
+                                        <a href="./services/social-media-management.html" target="_blank" class="dropdown-link">
                                             <div class="drop-title">Social Media Management</div>
                                         </a>
-                                        <a href="" class="dropdown-link">
+                                        <a href="./services/facebook-instagram-marketing.html" target="_blank" class="dropdown-link">
                                             <div class="drop-title">Facebook & Insta Marketing</div>
                                         </a>
                                         <a href="" class="dropdown-link">
@@ -471,6 +469,11 @@
                                         </a>
 
                                         <br />
+                                        <h6 class="drop-heading">Design Section</h6>
+                                            <a href="" class="dropdown-link">
+                                                <div class="drop-title"> UI / UX Design</div>
+                                            </a>
+                                            <br />
 
                                         <h6 class="drop-heading">Cloud Section</h6>
                                         <a href="" class="dropdown-link">
@@ -1683,8 +1686,8 @@
               type: 'POST',
               url: './php/store-user-info.php',
               data: {id: googleID, name: googleName, email: googleMail},
-              success: function(response) {
-                console.log(response);
+              success: function() {
+                console.log(`${googleName} Thanks for Business with us.`);
               }
             });
   
@@ -1701,6 +1704,104 @@
             })(googleName, googleMail, googlePicture);
         }
     </script>
+
+
+
+<script>
+    
+    let apiKey = 'a8d0c7d4cf00e3b4db70248b9d9dcc3053f76e80694f4fd2ae372416';
+        $.getJSON(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
+        let ipData = data.ip;
+        // console.log(ipData);
+
+        $.ajax({
+              type: 'POST',
+              url: './php/store-user-ip.php',
+              data: {ip: ipData},
+              success: function() {
+                console.log(ipData);
+              }
+            });
+        });
+</script>
+
+
+<script>
+
+
+   $.getJSON(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?http://m.bumblebees.co.in&AIzaSyAPOX2_fOrAYdyhwSy-Ofcrf7Y6kFyu71s`)
+    .then((response) => {
+
+        console.log(response);
+    });
+
+</script>
+
+
+<script>
+
+    let country_code = 'IN';
+    let pincodeValue = '600005';
+    let pincodeAPIkey = '1050-958abcd9-973a283f-6d4fee1b-1a5d3863ad01a21d1b7';
+    $.getJSON(`https://api.worldpostallocations.com/v1/search?apikey=${pincodeAPIkey}&zip_code=${pincodeValue}&country_code=${country_code}`)
+    .then((response) => {
+
+        console.log(response);
+
+        let deResult_1 = response.result[0].postalLocation;
+        let deResult_3 = response.result[0].state;
+        let deResult_4 = response.result[0].district;
+
+        console.table(deResult_1, deResult_3, deResult_4);
+
+
+    });
+</script>
+
+
+<script>
+let domainName = 'bumblebees.co.in';
+const domainSettings = {
+	"async": true,
+	"crossDomain": true,
+	"url": `https://whois-by-api-ninjas.p.rapidapi.com/v1/whois?domain=${domainName}`,
+	"method": "GET",
+	"headers": {
+		"X-RapidAPI-Key": "53acc3cbb5mshaee5fc4c164c57fp1157c1jsn3de0708c4098",
+		"X-RapidAPI-Host": "whois-by-api-ninjas.p.rapidapi.com"
+	}
+};
+
+$.ajax(domainSettings).done(function (response) {
+	// console.log(response);
+
+    let domain_name = response.domain_name;
+    let domainNameserver = response.name_servers;
+    let domainRegister = response.registrar;
+    let domainRegisterUrl = response.registrar_url;
+    let domainRegisteriana = response.registrar_iana;
+    let domainExpired = response.expiration_date;
+    console.log(response);
+
+    });
+
+
+</script>
+
+
+
+<!-- {
+    "611003":
+        [
+            {"postal_code":"611003","country_code":"IN","latitude":"10.87060000","longitude":"79.77160000","city":"Palpannaichery","state":"Tamil Nadu","city_en":"Palpannaichery","state_en":"Tamil Nadu","state_code":"TN","province":"Nagapattinam","province_code":"NG"},
+            {"postal_code":"611003","country_code":"IN","latitude":"10.87060000","longitude":"79.77160000","city":"Nagapattinam Collectorate","state":"Tamil Nadu","city_en":"Nagapattinam Collectorate","state_en":"Tamil Nadu","state_code":"TN","province":"Nagapattinam","province_code":"NG"},
+            {"postal_code":"611003","country_code":"RO","latitude":"46.92120000","longitude":"26.92650000","city":"Roman","state":"Neamţ","city_en":"Roman","state_en":"Neamţ","state_code":"28","province":"","province_code":""}
+        ]
+} -->
+
+
+
+
 
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 

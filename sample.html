@@ -1,81 +1,111 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
+<head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Maps JavaScript API with Places Library Autocomplete Address Field</title> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Google Maps JavaScript library -->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCdGv5cjpA0dMUCSolCf89tl_vgccGvsu0"></script>
+
 </head>
 <body>
 
-    <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v15.0&appId=717000599791753&autoLogAppEvents=1" nonce="NoBXTvN3"></script>
+    <script>
+        function setUpQuery() {
+    const api = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
+    const parameters = {
+        url: encodeURIComponent(`http://bumblebees.co.in`)
+    };
 
-<div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
-
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
-<script>
-
-  function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-    console.log('statusChangeCallback');
-    console.log(response);                   // The current login status of the person.
-    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-      testAPI();  
-    } else {                                 // Not logged into your webpage or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this webpage.';
+    let query = `${api}?`;
+    for (key in parameters) {
+    query += `${key}=${parameters[key]}`;
     }
-  }
+
+    // Add API key at the end of the query
+    query += "&AIzaSyAPOX2_fOrAYdyhwSy-Ofcrf7Y6kFyu71s"
+return query;
+    console.log(query);
+}
+    </script>
 
 
-  function checkLoginState() {               // Called when a person is finished with the Login Button.
-    FB.getLoginStatus(function(response) {   // See the onlogin handler
-      statusChangeCallback(response);
-    });
-  }
+    <script>
+        function run() {
+          const url = setUpQuery();
+          fetch(url)
+            .then(response => response.json())
+            .then(json => {
+              // See https://developers.google.com/speed/docs/insights/v5/reference/pagespeedapi/runpagespeed#response
+              // to learn more about each of the properties in the response object.
+              showInitialContent(json.id);
+              const cruxMetrics = {
+                "First Contentful Paint": json.loadingExperience.metrics.FIRST_CONTENTFUL_PAINT_MS.category,
+                "First Input Delay": json.loadingExperience.metrics.FIRST_INPUT_DELAY_MS.category
+              };
+              showCruxContent(cruxMetrics);
+              const lighthouse = json.lighthouseResult;
+              const lighthouseMetrics = {
+                'First Contentful Paint': lighthouse.audits['first-contentful-paint'].displayValue,
+                'Speed Index': lighthouse.audits['speed-index'].displayValue,
+                'Time To Interactive': lighthouse.audits['interactive'].displayValue,
+                'First Meaningful Paint': lighthouse.audits['first-meaningful-paint'].displayValue,
+                'First CPU Idle': lighthouse.audits['first-cpu-idle'].displayValue,
+                'Estimated Input Latency': lighthouse.audits['estimated-input-latency'].displayValue
+              };
+              showLighthouseContent(lighthouseMetrics);
+            });
+        }
+        
+        function setUpQuery() {
+          const api = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
+          const parameters = {
+            url: encodeURIComponent('https://developers.google.com')
+          };
+          let query = `${api}?`;
+          for (key in parameters) {
+            query += `${key}=${parameters[key]}`;
+          }
+          return query;
+        }
+        
+        function showInitialContent(id) {
+          document.body.innerHTML = '';
+          const title = document.createElement('h1');
+          title.textContent = 'PageSpeed Insights API Demo';
+          document.body.appendChild(title);
+          const page = document.createElement('p');
+          page.textContent = `Page tested: ${id}`;
+          document.body.appendChild(page);
+        }
+        
+        function showCruxContent(cruxMetrics) {
+          const cruxHeader = document.createElement('h2');
+          cruxHeader.textContent = "Chrome User Experience Report Results";
+          document.body.appendChild(cruxHeader);
+          for (key in cruxMetrics) {
+            const p = document.createElement('p');
+            p.textContent = `${key}: ${cruxMetrics[key]}`;
+            document.body.appendChild(p);
+          }
+        }
+        
+        function showLighthouseContent(lighthouseMetrics) {
+          const lighthouseHeader = document.createElement('h2');
+          lighthouseHeader.textContent = "Lighthouse Results";
+          document.body.appendChild(lighthouseHeader);
+          for (key in lighthouseMetrics) {
+            const p = document.createElement('p');
+            p.textContent = `${key}: ${lighthouseMetrics[key]}`;
+            document.body.appendChild(p);
+          }
+        }
+        
+        run();
+        </script>
 
-
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '717000599791753',
-      cookie     : true,                     // Enable cookies to allow the server to access the session.
-      xfbml      : true,                     // Parse social plugins on this webpage.
-      version    : '{api-version}'           // Use this Graph API version for this call.
-    });
-
-
-    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-      statusChangeCallback(response);        // Returns the login status.
-    });
-  };
- 
-  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
-
-</script>
-
-
-<!-- The JS SDK Login Button -->
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div>
-
-
-
-
-<!-- Load the JS SDK asynchronously -->
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
 </html>

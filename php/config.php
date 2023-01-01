@@ -1,16 +1,16 @@
 <?php
-// DB credentials.
-define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PASS','');
-define('DB_NAME','testdb');
-// Establish database connection.
-try
-{
-$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,DB_USER, DB_PASS,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+// Define database parameters
+$db_host = 'localhost';
+$db_name = 'bumblebees';
+$db_user = 'root';
+$db_pass = '';
+
+// Connect to the MySQL database using PDO
+try {
+    $pdo = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+} catch (PDOException $e) {
+    die("Error connecting to the database: " . $e->getMessage());
 }
-catch (PDOException $e)
-{
-exit("Error: " . $e->getMessage());
-}
+
 ?>
