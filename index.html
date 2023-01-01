@@ -1726,16 +1726,6 @@
 </script>
 
 
-<script>
-
-
-   $.getJSON(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?http://m.bumblebees.co.in&AIzaSyAPOX2_fOrAYdyhwSy-Ofcrf7Y6kFyu71s`)
-    .then((response) => {
-
-        console.log(response);
-    });
-
-</script>
 
 
 <script>
@@ -1760,7 +1750,11 @@
 
 
 <script>
-let domainName = 'bumblebees.co.in';
+
+let a = document.URL;
+    console.log(a);
+
+let domainName = a;
 const domainSettings = {
 	"async": true,
 	"crossDomain": true,
