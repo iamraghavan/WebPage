@@ -1754,7 +1754,7 @@
 let a = document.URL;
     console.log(a);
 
-let domainName = a;
+let domainName = "bumblebees.co.in";
 const domainSettings = {
 	"async": true,
 	"crossDomain": true,
@@ -1767,7 +1767,7 @@ const domainSettings = {
 };
 
 $.ajax(domainSettings).done(function (response) {
-	// console.log(response);
+	console.log(response);
 
     let domain_name = response.domain_name;
     let domainNameserver = response.name_servers;
@@ -1775,7 +1775,7 @@ $.ajax(domainSettings).done(function (response) {
     let domainRegisterUrl = response.registrar_url;
     let domainRegisteriana = response.registrar_iana;
     let domainExpired = response.expiration_date;
-    console.log(response);
+
 
     });
 
