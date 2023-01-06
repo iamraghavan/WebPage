@@ -629,15 +629,15 @@ press
                     let domainEamil = response.emails;
 
 
-                    console.log(domain_name);
-                    console.log(domainNameserver);
-                    console.log(domainRegister);
-                    console.log(domainRegisterUrl);
-                    console.log(domainRegisteriana);
-                    console.log(domainExpired);
-                    console.log(domainCountry);
-                    console.log(doaminCreation);
-                    console.log(domainEamil);
+                    // console.log(domain_name);
+                    // console.log(domainNameserver);
+                    // console.log(domainRegister);
+                    // console.log(domainRegisterUrl);
+                    // console.log(domainRegisteriana);
+                    // console.log(domainExpired);
+                    // console.log(domainCountry);
+                    // console.log(doaminCreation);
+                    // console.log(domainEamil);
 
 
 
@@ -647,17 +647,25 @@ press
                     var websiteName = document.getElementById("domainA1");
                     websiteName.innerHTML = domain_name;
 
-                    var nameServers = document.getElementById("domainA2");
-                    nameServers.innerHTML = domainNameserver;
+                    var l34 = document.getElementById("domainA2");
+                    l34.innerHTML = domainNameserver[0];
+                    var l34 = document.getElementById("domainA8");
+                    l34.innerHTML = domainNameserver[1];
 
                     var Register = document.getElementById("domainA3");
                     Register.innerHTML = domainRegister;
 
                     var l1 = document.getElementById("domainA4");
-                    l1.innerHTML = domain_name;
+                    l1.innerHTML = domainRegisterUrl;
 
-                    // var websiteName = document.getElementById("domainA1");
-                    // websiteName.innerHTML = domain_name;
+                    var li2 = document.getElementById("domainA5");
+                    li2.innerHTML = domainExpired;
+
+                    var l2 = document.getElementById("domainA6");
+                    l2.innerHTML = domainCountry;
+
+                    var l3 = document.getElementById("domainA7");
+                    l3.innerHTML = domainEamil;
 
 
                 });
@@ -673,26 +681,34 @@ press
         <br>
 
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- <div class="feature-grid"> -->
-                        <!-- <div class="feature-card border border-light border-2 rounded-custom p-5">
-                            <div class="rounded mb-2 d-flex align-items-center">
-                                <i class="far fa-globe fa-2x text-primary me-3"></i>
-                                <h3 class="h5 mb-0" id="domainA1"></h3>
-                            </div>
-                            <div class="feature-content">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="py-1" id="domainA2"><i class="fad fa-check me-2 text-primary"></i></li>
-                                    <li class="py-1" id="domainA3"><i class="fad fa-check me-2 text-primary"></i></li>
-                                    <li class="py-1" id="domainA4"><i class="fad fa-check me-2 text-primary"></i></li>
-                                </ul>
-                            </div>
-                        </div> -->
+         <!--open jobs section start-->
+         <section id="open-positions" class="open-jobs ptb-120">
+            <div class="container">
+               
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 col-md-12">
+                        <a class="text-decoration-none mt-4 mt-xl-0 mt-lg-0 single-open-job p-5 bg-dark text-white d-block rounded-custom">
 
-                        <!-- </div> -->
+                            <h3 class="h5"><i class="far fa-globe me-2"></i>Website :</h3><h3 class="h5" id="domainA1"></h3>
+                            
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="job-time h-6 mb-2"> <strong>Remote - Full Time</strong></span>
+                                
+                            </div>
+                            
+                        </a>
                     </div>
+                    
                 </div>
+            </div>
+        </section>
+        <!--open jobs section end-->
+
+
+                
+
+
+              
             
         <!--features grid section end-->
 
