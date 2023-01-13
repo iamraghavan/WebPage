@@ -1,3 +1,8 @@
+<?php
+include './send-email-cust.php';
+$userName;
+?>
+
 <!doctype html>
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
       <head>
@@ -228,7 +233,10 @@
             <tr>
               <td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
                 
-      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;"><h1 style="font-family: 'Cabin', sans-serif; font-size: 22px;"><strong><span style="font-family: 'Open Sans', sans-serif; font-size: 20px;">Dear Client / Customer</span></strong></h1></div>
+      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;"><h1 style="font-family: 'Cabin', sans-serif; font-size: 22px;"><strong><span style="font-family: 'Open Sans', sans-serif; font-size: 20px;">Dear 
+      <?php
+$userName;
+?></span></strong></h1></div>
     
               </td>
             </tr>
@@ -616,3 +624,5 @@
     
       </body>
     </html>
+
+    

@@ -1,0 +1,14 @@
+<script>
+        let apiKey2 = 'a8d0c7d4cf00e3b4db70248b9d9dcc3053f76e80694f4fd2ae372416';
+        $.getJSON(`https://api.ipdata.co?api-key=${apiKey2}`).then(data => {
+          let ipData = data.country_code;
+          // console.log(ipData);
+          let a = ((countryCode) => {
+            if (countryCode == 'US') {
+                console.log(countryCode);
+            } else {
+                window.location = '../index.html';
+            }
+          })(ipData);
+        });
+      </script>

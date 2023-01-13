@@ -15,6 +15,8 @@
         &amp; Digital Marketing
     </title>
 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js' integrity='sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==' crossorigin='anonymous'></script>
+    
     <!--google fonts-->
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap"
@@ -27,10 +29,55 @@
     <!--custom css start-->
     <link rel="stylesheet" href="./css/custom.css" />
     <!--custom css end-->
+    <script>
+        
+        let apiKey2 = 'a8d0c7d4cf00e3b4db70248b9d9dcc3053f76e80694f4fd2ae372416';
+        $.getJSON(`https://api.ipdata.co?api-key=${apiKey2}`).then(data => {
+          let ipData = data.country_code;
+          console.log(ipData);
+
+   
+                ((countryCode) => {
+
+                    if (countryCode == 'US') {
+                        window.location = './en-us/index.html';
+
+                    } else {
+                        console.log("Thanks For you Intrest !")
+                    }
+
+                })(ipData);
+            
+
+        });
+
+
+    </script>
 
 </head>
 
 <body>
+<!-- <script>
+        let apiKey2 = 'a8d0c7d4cf00e3b4db70248b9d9dcc3053f76e80694f4fd2ae372416';
+        $.getJSON(`https://api.ipdata.co?api-key=${apiKey2}`).then(data => {
+          let ipData = data.country_code;
+        //   console.log(ipData);
+
+   
+                ((countryCode) => {
+
+                    if (countryCode == 'IN') {
+                        window.location = './en-us/index.html';
+
+                    } else {
+                        window.location = './index.html';
+                    }
+
+                })(ipData);
+            
+
+        });
+      </script> -->
 
 
     <div id="g_id_onload" data-client_id="227588324050-267dv8s03k5q9mu57lun7adi5uc62vvm.apps.googleusercontent.com"
@@ -108,48 +155,48 @@
                                                     Facebook & Insta Marketing
                                                 </div>
                                             </a>
-                                            <a href="./services/Google-Ads.html"  target="_blank" class="dropdown-link">
+                                            <a href="./services/google-ads.html"  target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Google Ads</div>
                                             </a>
-                                            <a href="./services/SEO-&-Local-SEO.html"  target="_blank" class="dropdown-link">
+                                            <a href="./services/seo-&-local-seo.html"  target="_blank" class="dropdown-link">
                                                 <div class="drop-title">SEO & Local SEO</div>
                                             </a>
                                         </div>
                                         <div class="dropdown-grid-item">
                                             <h6 class="drop-heading">Production Section</h6>
-                                            <a href="./services/Social-Media-Ads-Design.html" target="_blank" class="dropdown-link">
+                                            <a href="./services/social-media-ads-design.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Social Media Ads Design</div>
                                             </a>
-                                            <a href="./services/Product-Design.html" target="_blank" class="dropdown-link">
+                                            <a href="./services/product-design.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Product Design</div>
                                             </a>
-                                            <a href="./services/Advertisements-and-commercials.html" target="_blank" class="dropdown-link">
+                                            <a href="./services/advertisements-and-commercials.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">
                                                     Advertisements and commercials
                                                 </div>
                                             </a>
-                                            <a href="./services/Company-brand-identity.html" target="_blank" class="dropdown-link">
+                                            <a href="./services/company-brand-identity.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Company brand identity</div>
                                             </a>
 
                                             <br />
                                             <h6 class="drop-heading">Design Section</h6>
-                                            <a href="" target="_blank" class="dropdown-link">
+                                            <a href="./services/ui-ux-design.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title"> UI / UX Design</div>
                                             </a>
                                             <br />
 
 
                                             <h6 class="drop-heading">Cloud Section</h6>
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/amazon-web-services.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Amazon Web Service</div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/Google-Cloud-and-Firebase.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">
                                                     Google Cloud &amp; Firebase
                                                 </div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/microsoft-azure.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Microsoft Azure</div>
                                             </a>
                                         </div>
@@ -166,7 +213,7 @@
                                 <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white">
                                     <div class="dropdown-grid rounded-custom width-full">
                                         <div class="dropdown-grid-item">
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/business-consulting.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Business Consulting</div>
                                             </a>
                                             <a href="" class="dropdown-link">
@@ -424,7 +471,7 @@
                                 <div class="dropdown-grid rounded-custom width-full-3">
                                     <div class="dropdown-grid-item">
                                         <h6 class="drop-heading">Web Section</h6>
-                                        <a href="./services/Landing-Page.html" class="dropdown-link">
+                                        <a href="./services/landing-page.html" class="dropdown-link">
                                             <div class="drop-title">Landing Page</div>
                                         </a>
                                         <a href="" class="dropdown-link">
@@ -444,47 +491,47 @@
                                         <a href="./services/facebook-instagram-marketing.html" target="_blank" class="dropdown-link">
                                             <div class="drop-title">Facebook & Insta Marketing</div>
                                         </a>
-                                        <a href="./services/Google-Ads.html" class="dropdown-link">
+                                        <a href="./services/google-ads.html" class="dropdown-link">
                                             <div class="drop-title">Google Ads</div>
                                         </a>
-                                        <a href="./services/SEO-&-Local-SEO.html" class="dropdown-link">
+                                        <a href="./services/seo-and-local-seo.html" class="dropdown-link">
                                             <div class="drop-title">SEO & Local SEO</div>
                                         </a>
                                     </div>
                                     <div class="dropdown-grid-item">
                                         <h6 class="drop-heading">Production Section</h6>
-                                        <a href="./services/Social-Media-Ads-Design.html" class="dropdown-link">
+                                        <a href="./services/social-media-ads-design.html" class="dropdown-link">
                                             <div class="drop-title">Social Media Ads Design</div>
                                         </a>
-                                        <a href="./services/Product-Design.html" class="dropdown-link">
+                                        <a href="./services/product-design.html" class="dropdown-link">
                                             <div class="drop-title">Product Design</div>
                                         </a>
-                                        <a href="./services/Advertisements-and-commercials.html" class="dropdown-link">
+                                        <a href="./services/advertisements-and-commercials.html" class="dropdown-link">
                                             <div class="drop-title">
                                                 Advertisements and commercials
                                             </div>
                                         </a>
-                                        <a href="./services/Company-brand-identity.html" class="dropdown-link">
+                                        <a href="./services/company-brand-identity.html" class="dropdown-link">
                                             <div class="drop-title">Company brand identity</div>
                                         </a>
 
                                         <br />
                                         <h6 class="drop-heading">Design Section</h6>
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/ui-ux-design.html" class="dropdown-link">
                                                 <div class="drop-title"> UI / UX Design</div>
                                             </a>
                                             <br />
 
                                         <h6 class="drop-heading">Cloud Section</h6>
-                                        <a href="" class="dropdown-link">
+                                        <a href="./services/amazon-web-services.html" class="dropdown-link">
                                             <div class="drop-title">Amazon Web Service</div>
                                         </a>
-                                        <a href="" class="dropdown-link">
+                                        <a href="./services/google-cloud-and-firebase.html" class="dropdown-link">
                                             <div class="drop-title">
                                                 Google Cloud &amp; Firebase
                                             </div>
                                         </a>
-                                        <a href="" class="dropdown-link">
+                                        <a href="./services/microsoft-azure.html" class="dropdown-link">
                                             <div class="drop-title">Microsoft Azure</div>
                                         </a>
                                     </div>
@@ -500,7 +547,7 @@
                             <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white">
                                 <div class="dropdown-grid rounded-custom width-full">
                                     <div class="dropdown-grid-item">
-                                        <a href="" class="dropdown-link">
+                                        <a href="./services/business-consulting.html" class="dropdown-link">
                                             <div class="drop-title">Business Consulting</div>
                                         </a>
                                         <a href="" class="dropdown-link">
@@ -1427,7 +1474,9 @@
                                         <div style="padding-left:10px;">
                                             <div class="work-experience ml-1"><span class="font-weight-bold d-block"
                                                 id="username"></span><span class="d-block text-white labels"
-                                                id="usermail"></span></div>
+                                                id="usermail"></span>
+                                                <span class="d-block text-white labels"
+                                                id="profile"></span></div>
                                         </div>
                                     
 
@@ -1681,11 +1730,20 @@
             const googleID = decodedToken.sub;
 
 
+
             // Send user info to backend for storage in database
             $.ajax({
               type: 'POST',
               url: './php/store-user-info.php',
               data: {id: googleID, name: googleName, email: googleMail},
+              success: function() {
+                console.log(`${googleName} Thanks for Business with us.`);
+              }
+            });
+            $.ajax({
+              type: 'POST',
+              url: './php/send-email-cust.php',
+              data: {name: googleName, email: googleMail},
               success: function() {
                 console.log(`${googleName} Thanks for Business with us.`);
               }
@@ -1703,12 +1761,13 @@
                 gmail.innerHTML = displayProfileMail;
             })(googleName, googleMail, googlePicture);
         }
+
+        
     </script>
 
 
 
-<script>
-    
+<script>  
     let apiKey = 'a8d0c7d4cf00e3b4db70248b9d9dcc3053f76e80694f4fd2ae372416';
         $.getJSON(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
         let ipData = data.ip;
@@ -1719,7 +1778,7 @@
               url: './php/store-user-ip.php',
               data: {ip: ipData},
               success: function() {
-                console.log(ipData);
+                // console.log(ipData);
               }
             });
         });
@@ -1728,7 +1787,7 @@
 
 
 
-<script>
+<!-- <script>
 
     let country_code = 'IN';
     let pincodeValue = '600005';
@@ -1746,10 +1805,10 @@
 
 
     });
-</script>
+</script> -->
 
 
-<script>
+<!-- <script>
 
 let a = document.URL;
     console.log(a);
@@ -1780,7 +1839,7 @@ $.ajax(domainSettings).done(function (response) {
     });
 
 
-</script>
+</script> -->
 
 
 
