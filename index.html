@@ -158,7 +158,7 @@
                                             <a href="./services/google-ads.html"  target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Google Ads</div>
                                             </a>
-                                            <a href="./services/seo-&-local-seo.html"  target="_blank" class="dropdown-link">
+                                            <a href="./services/seo-and-local-seo.html"  target="_blank" class="dropdown-link">
                                                 <div class="drop-title">SEO & Local SEO</div>
                                             </a>
                                         </div>
@@ -216,22 +216,22 @@
                                             <a href="./services/business-consulting.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Business Consulting</div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href="./services/cybersecurity.html" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Cybersecurity</div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href="" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Data and Analytics</div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href="" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Enterprise Solutions</div>
                                             </a>
 
-                                            <a href="" class="dropdown-link">
+                                            <a href="" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">
                                                     IoT's and Digital Engineering
                                                 </div>
                                             </a>
-                                            <a href="" class="dropdown-link">
+                                            <a href="" target="_blank" class="dropdown-link">
                                                 <div class="drop-title">Software Engineering</div>
                                             </a>
                                         </div>
@@ -550,7 +550,7 @@
                                         <a href="./services/business-consulting.html" class="dropdown-link">
                                             <div class="drop-title">Business Consulting</div>
                                         </a>
-                                        <a href="" class="dropdown-link">
+                                        <a href="./services/cybersecurity.html" class="dropdown-link">
                                             <div class="drop-title">Cybersecurity</div>
                                         </a>
                                         <a href="" class="dropdown-link">
@@ -1363,10 +1363,9 @@
                                             <i class="far fa-paper-plane marginLeftIcon"></i>
                                         </button>
                                     </div>
-                                    <!-- <div class="col-lg-6 recaptcha-contactform">
-                                        <div class="g-recaptcha"
-                                            data-sitekey="6LdmSSUiAAAAAM2rzUEoEnGtiT7cQwqLZXmwcKBh"></div>
-                                    </div> -->
+                                    <!-- <div class="col-lg-6 recaptcha-contactform"> -->
+                                        <div class="h-captcha" data-sitekey="0x4AAAAAAACC60E1r0uX5QL4"></div>
+                                    <!-- </div> -->
                                 </div>
                             </div>
                         </form>
@@ -1379,6 +1378,39 @@
                 </div>
             </div>
         </section>
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <script>
+            const form = document.querySelector("form");
+form.addEventListener("submit", function(event) {
+event.preventDefault();
+hcaptcha.execute();
+});
+
+$(document).ready(function() {
+    $("form").submit(function(event) {
+        event.preventDefault();
+        var secret_key = "0x4AAAAAAACC64feHmLdv2WT-mhA_Yc4IwE";
+        var response = $("input[name='h-captcha-response']").val();
+        $.ajax({
+            url: "https://hcaptcha.com/siteverify",
+            type: "POST",
+            data: { secret: secret_key, response: response },
+            success: function(result) {
+                if (result.success) {
+                    alert("Captcha passed, proceed with form submission.");
+                    // Additional code to submit the form or handle the successful submission
+                } else {
+                    alert("Captcha failed, please try again.");
+                }
+            }
+        });
+    });
+});
+
+
+        </script>
+
+        
 
         <style>
             .india_glitch {
