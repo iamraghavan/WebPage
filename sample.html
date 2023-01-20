@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase Push Notifications</title>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-messaging.js"></script>
+</head>
+<body>
+  <script>
+    // Initialize Firebase
+    var firebaseConfig = {
+        apiKey: "AIzaSyAPOX2_fOrAYdyhwSy-Ofcrf7Y6kFyu71s",
+        authDomain: "intricate-aria-345510.firebaseapp.com",
+        databaseURL: "https://intricate-aria-345510-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "intricate-aria-345510",
+        storageBucket: "intricate-aria-345510.appspot.com",
+        messagingSenderId: "227588324050",
+        appId: "1:227588324050:web:5fb41aeddc8316f1268b0b",
+        measurementId: "G-Q5J0TN6C1C"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Get messaging object
+    const messaging = firebase.messaging();
+
+    // Request permission to send notifications
+    messaging.requestPermission()
+    .then(function() {
+      console.log("Notification permission granted.");
+      
+      // Get token
+      messaging.getToken()
+      .then(function(currentToken) {
+        if (currentToken) {
+          console.log("Token:", currentToken);
+        } else {
+          console.log("No Instance ID token available. Request permission to generate one.");
+        }
+      })
+      .catch(function(err) {
+        console.log("An error occurred while retrieving token. ", err);
+      });
+    })
+    .catch(function(err) {
+      console.log("Unable to get permission to notify.", err);
+    });
+
+    // Handle incoming messages
+    messaging.onMessage(function(payload) {
+      console.log("Message received. ", payload);
+    });
+  </script>
+</body>
+</html>
